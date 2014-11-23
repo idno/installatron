@@ -1,6 +1,6 @@
 <installer>
 	<id>known2</id>
-	<build>1</build>
+	<build>2</build>
 	<url>http://my_domain/my_installers/known2.tar.gz</url>
-	<md5>b3cc3b174a0a367fdf48cb379fe042ce</md5>
+	<md5>8be22351451887551800c2889207ac3d</md5>
 </installer>
