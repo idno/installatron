@@ -5,10 +5,28 @@
 		<info id="version" value="0.6.5"/>
 		<info id="license" value="_apps_opensource"/>
 		<info id="date" value="2014-11-23"/>
-		<info id="cost" value=""/>
 	</information>
+	
+	<changelog url="http://docs.withknown.com/en/latest/changelog.html">
+	
+	<![CDATA[
+* Export your data
+* Improved session handling, particularly for MongoDB installations
+* .htaccess is now more compatible with shared hosts like Dreamhost and GoDaddy
+* Fewer system requirements for installation
+* No need for ‘http://‘ in profile URLs
+* Improved Micropub support
+* More efficient file interface
+* Some style improvements, particularly with input fields
+* Bookmarklet now opens in a new page
+* Removed humans.txt
+* More traditional array and other internal syntax
+* Additional stability and speed improvements
+	]]>
+	</changelog>
 
 	<links>
+		<link id="admin" value="admin"/>
 	</links>
 
 	<requirements>
@@ -25,6 +43,39 @@
 		<requirement id="php-short-open-tag" value="1"/>
 		<requirement id="php-version-minimum" value="5.4"/>
 	</requirements>
+	
+	<skeleton>
+		<file id="codeception.yml"/>
+		<file id="CONTRIBUTORS.md"/>
+		<file id="css"/>
+		<file id="config.ini" isconfig="true"/>
+		<file id="docs"/>
+		<file id="external"/>
+		<file id="gfx"/>
+		<file id="HARASSMENT-POLICY.md"/>
+		<file id="htaccess-2.4.dist"/>
+		<file id="htaccess.dist"/>
+		<file id="Idno"/>
+		<file id="IdnoPlugins"/>
+		<file id="index.php"/>
+		<file id="js"/>
+		<file id="LICENSE"/>
+		<file id="phpunit.xml"/>
+		<file id="README.md"/>
+		<file id="schemas"/>
+		<file id="statics"/>
+		<file id="templates"/>
+		<file id="Tests"/>
+		<file id="Themes"/>
+		<file id="Uploads"/>
+		<file id="warmup"/>
+		<table id="config"/>
+		<table id="entities"/>
+		<table id="reader"/>
+		<table id="metadata"/>
+		<table id="versions"/>
+		<table id="session"/>
+	</skeleton>
 
 	<archives>
 		<archive id="main" url="http://assets.withknown.com/releases/known-0.6.5.zip" type="zip" md5="728d8dc6bf4a8c7dd9cdb2ca58d2fe6a"/>
