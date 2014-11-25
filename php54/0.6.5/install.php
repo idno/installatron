@@ -46,13 +46,13 @@ class i_known2_0_6_5_install extends i_action_install
 	uploadpath = "##uploadpath##"
 ');
 	
-        $this->sr("config.ini", "##dbuser##", ($this->db_user));
-        $this->sr("config.ini", "##dbpass##", ($this->db_pass));
-        $this->sr("config.ini", "##dbhost##", ($this->db_host));
-        $this->sr("config.ini", "##dbname##", ($this->db_name));
-        $this->sr("config.ini", "##path##", $this->path);
-        $this->sr("config.ini", "##uploadpath##", $this->path . '/Uploads');
-        $this->sr("config.ini", "##title##", ($this->input["field_sitetitle"]));	
+        $this->sr("config.ini", "/##dbuser##/", ($this->db_user));
+        $this->sr("config.ini", "/##dbpass##/", ($this->db_pass));
+        $this->sr("config.ini", "/##dbhost##/", ($this->db_host));
+        $this->sr("config.ini", "/##dbname##/", ($this->db_name));
+        $this->sr("config.ini", "/##path##/", $this->path);
+        $this->sr("config.ini", "/##uploadpath##/", $this->path . '/Uploads');
+        $this->sr("config.ini", "/##title##/", ($this->input["field_sitetitle"]));	
 	
 	}
 }
