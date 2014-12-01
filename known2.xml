@@ -1,6 +1,6 @@
 <installer>
 	<id>known2</id>
-	<build>8</build>
-	<url>https://github.com/idno/installatron/raw/master/known2.tar.gz</url>
-	<md5>fa4d4b4958654d75a667195bf0a780bd</md5>
+	<build>10</build>
+	<url>http://my_domain/my_installers/known2.tar.gz</url>
+	<md5>1175b49159012b1d3e0c46f03c13eda9</md5>
 </installer>
