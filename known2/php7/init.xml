@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<installer>
+	<information>
+		<info id="id" value="known2"/>
+		<info id="build" value="10"/>
+		<info id="status" value="enabled"/>
+		<info id="name" value="_installer_known2_title"/>
+		<info id="type" value="_installer_known2_type"/>
+		<info id="category" value="_installer_known2_category"/>
+		<info id="created" value="2019-01-22"/>
+		<info id="description" value="_installer_known2_description"/>
+		<info id="authordescription" value="_installer_known2_authordescription"/>
+	</information>
+
+	<changelog url="http://docs.withknown.com/en/latest/changelog.html">
+
+	<links>
+		<link id="site" value="http://https://withknown.com/"/>
+		<link id="docs" value="http://docs.withknown.com/"/>
+		<link id="support" value="http://community.withknown.com/"/>
+	</links>
+
+	<versions>
+		<branch id="current">
+			<version id="0.9.9" upgrade="none" install="auto"/>
+		</branch>
+
+	</versions>
+</installer>
