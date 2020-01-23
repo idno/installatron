@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<installer>
+
+	<information>
+		<info id="version" value="0.9.9"/>
+		<info id="license" value="_apps_opensource"/>
+		<info id="date" value="2019-01-22"/>
+		<info id="cost" value=""/>
+	</information>
+
+	<links>
+	</links>
+
+        <requirements>
+		<requirement id="itron-version" value="5.0.0"/>
+		<requirement id="diskspace" value="50"/>
+		<requirement id="database" value="1"/>
+		<requirement id="db-type" value="mysql"/>
+		<requirement id="db-prefix-support" value="0"/>
+		<requirement id="php-url-fopen" value="1"/>
+		<requirement id="php-register-globals" value="0"/>
+		<requirement id="php-magic-quotes" value="0"/>
+		<requirement id="php-safe-mode" value="0"/>
+		<requirement id="php-open-basedir" value="0"/>
+		<requirement id="php-short-open-tag" value="1"/>
+		<requirement id="php-version-minimum" value="5.4"/>
+	</requirements>
+
+	<skeleton>
+		<file id=".gitignore">
+		<file id=".htaccess">
+		<file id=".travis.yml">
+		<file id="ansible.sample">
+		<file id="chrome">
+		<file id="config.ini" isconfig="true"/>
+		<file id="ConsolePlugins">
+		<file id="CONTRIBUTORS.md">
+		<file id="css">
+		<file id="docs">
+		<file id="docs-mkdocs.yml">
+		<file id="doxygen.conf">
+		<file id="external">
+		<file id="gfx">
+		<file id="HARASSMENT-POLICY.md">
+		<file id="htaccess-2.4.dist">
+		<file id="htaccess.dist">
+		<file id="Idno">
+		<file id="IdnoPlugins">
+		<file id="index.php">
+		<file id="ISSUE_TEMPLATE">
+		<file id="js">
+		<file id="known.php">
+		<file id="LICENSE">
+		<file id="mkdocs.yml">
+		<file id="nginx.conf">
+		<file id="phpunit.xml">
+		<file id="PULL_REQUEST_TEMPLATE">
+		<file id="README.md">
+		<file id="schemas">
+		<file id="statics">
+		<file id="templates">
+		<file id="Tests">
+		<file id="Themes">
+		<file id="Uploads">
+		<file id="Vagrantfile.sample">
+		<file id="version.known">
+		<file id="warmup">
+	</skeleton>
+
+	<archives>
+		<archive id="main" url="http://assets.withknown.com/releases/known-0.9.9.tgz" type="tar.gz" md5="728d8dc6bf4a8c7dd9cdb2ca58d2fe6a"/>
+	</archives>
+
+	<install>
+		<?php
+
+		// extract the 'main' archive:
+		$this->extract("main");
+
+		// TIP: this is where you install code goes. see: http://www.installatron.com/sdk
+		// TIP: if no code is added here, the installer will simply extract the archive
+		//      into the install directory.
+		
+		// TIP: install code is made of Installatron commands. some examples:
+		//   move                $this->mv('FROM','TO');
+		//   copy                $this->cp('FROM','TO');
+		//   remove (delete)     $this->rm('FILE_OR_DIR');
+		//   chmod               $this->chmod('FILE_OR_DIR',0777);
+		//   edit file (regex)   $this->sr('FILE','#REGEX#","REPLACE_WITH");
+		//   ...see all the commands at: http://www.installatron.com/sdk_commands
+		
+		   $this->chmod('Uploads',0755);
+		   $this->db_import('schemas/mysql/mysql.sql');
+		          $this->cp('htaccess.dist','.htaccess');
+		
+		// TIP: Installatron has a lot of useful variables. some examples:
+		//   install url         $this->url
+		//   install path        $this->path
+		//   database host       $this->db_host
+		//   database host       $this->db_host
+		//   database name       $this->db_name
+		//   database username   $this->db_user
+		//   database password   $this->db_pass
+		//   table prefix        $this->db_prefix
+		//   ...see all the variables at: http://www.installatron.com/sdk_commands
+		
+		// TIP: you can add as many steps as you need
+		// TIP: you can remove these comments if you don't need them.
+		
+		   $this->write('config.ini', '
+database = "MySQL"
+dbuser = "/##dbuser##/"
+dbpass = "/##dbpass##/"
+dbname = "/##dbname##/"
+dbhost = "/##dbhost##/"
+title = "/##title##/"
+path = "/##path##/"
+uploadpath = "/##uploadpath##/"
+');
+		
+			$this->sr("config.ini", "/##dbuser##/", ($this->db_user));
+			$this->sr("config.ini", "/##dbpass##/", ($this->db_pass));
+			$this->sr("config.ini", "/##dbhost##/", ($this->db_host));
+			$this->sr("config.ini", "/##dbname##/", ($this->db_name));
+			$this->sr("config.ini", "/##path##/", $this->path);
+				$this->sr("config.ini", "/##uploadpath##/", $this->path . '/Uploads');
+			$this->sr("config.ini", "/##title##/", ($this->input["field_sitetitle"]));
+		?>
+	</install>
+</installer>
